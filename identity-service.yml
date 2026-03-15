@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: identity-service
+  jpa:
+    hibernate:
+      ddl-auto: validate          # never let Hibernate modify your schema in production
+    show-sql: false               # overridden in dev
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+jwt:
+  expiration: 3600000             # 1 hour in milliseconds — same everywhere
+  refresh-expiration: 86400000    # 24 hours for refresh token

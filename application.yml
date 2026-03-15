@@ -1,2 +1,40 @@
+# ================================
+# SHARED CONFIG — inherited by ALL services
+# ================================
+
 app:
   name: Vointika
+
+# ================================
+# EUREKA CLIENT — all services register here
+# ================================
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10      # heartbeat every 10s (default 30)
+    lease-expiration-duration-in-seconds: 30   # mark down after 30s (default 90)
+
+# ================================
+# ACTUATOR
+# ================================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, refresh, env
+  endpoint:
+    health:
+      show-details: always
+
+# ================================
+# LOGGING
+# ================================
+logging:
+  level:
+    com.vointika: DEBUG
+    org.springframework.cloud: INFO
