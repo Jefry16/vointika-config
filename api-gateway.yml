@@ -10,12 +10,12 @@ spring:
             - id: auth-service
               uri: lb://identity-service
               predicates:
-                - Path=/v1/auth/**
+                - Path=/auth/**
 
             - id: operators-admin
               uri: lb://operator-service
               predicates:
-                - Path=/v1/operators/**
+                - Path=/operators/**
 
   security:
     oauth2:
