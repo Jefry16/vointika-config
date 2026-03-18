@@ -7,15 +7,15 @@ spring:
       server:
         webmvc:
           routes:
-            - id: auth-service
-              uri: lb://identity-service
+            - id: identity
+              uri: lb://identity
               predicates:
                 - Path=/auth/**
 
-            - id: operators-admin
-              uri: lb://operator-service
-              predicates:
-                - Path=/operators/**
+            # - id: operators-admin
+            #   uri: lb://operator-service
+            #   predicates:
+            #     - Path=/operators/**
 
   security:
     oauth2:
